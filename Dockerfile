@@ -1,4 +1,4 @@
-# Dockerfile for building Ansible and Packer image for Alpine 3
+# Dockerfile for building Ansible, Packer and Terraform image for Alpine 3
 FROM alpine:3.6
 
 MAINTAINER Nicolae Serban <nserban@gmail.com>
@@ -29,7 +29,7 @@ RUN apk add --update git curl openssh make && \
     curl --silent https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip > packer_${PACKER_VERSION}_linux_amd64.zip && \
     unzip packer_${PACKER_VERSION}_linux_amd64.zip -d /bin && \
     rm -f packer_${PACKER_VERSION}_linux_amd64.zip && \
-    adduser -D -u 1000 packer
+    adduser -D -u 1000 tools
 
 # Install Terraform
 RUN apk add --update git curl openssh make && \
